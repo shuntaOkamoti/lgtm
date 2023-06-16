@@ -22,13 +22,13 @@ jobs:
       - restore_cache:
           key: deps-{{ checksum "requirements.lock" }}
       - run:
-        command: |
-          python3 -m unittest -v
+          command: |
+            python3 -m unittest -v
 workflows:
   version: 2
   all:
     jobs:
       - setup_dependencies
       - test:
-        requires:
-          - setup_dependencies
+          requires:
+            - setup_dependencies
